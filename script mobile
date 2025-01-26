@@ -15,3 +15,11 @@ end
 
 -- Вызываем функцию
 removeUnwantedGUIs()
+
+local player = game.Players.LocalPlayer  -- Получаем игрока
+local character = player.Character or player.CharacterAdded:Wait()  -- Получаем персонажа игрока (если его нет, ждем появления)
+local humanoid = character:WaitForChild("Humanoid")  -- Получаем объект Humanoid
+
+-- Изменяем скорость и высоту прыжка
+humanoid.WalkSpeed = 25  -- Устанавливаем скорость движения
+humanoid.JumpHeight = 70  -- Устанавливаем высоту прыжка
