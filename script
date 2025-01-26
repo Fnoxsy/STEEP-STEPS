@@ -1,0 +1,17 @@
+local player = game.Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+
+-- Функция для удаления всех GUI элементов, кроме кнопок прыжка и ходьбы
+local function removeUnwantedGUIs()
+    -- Перебираем все элементы в PlayerGui
+    for _, guiElement in pairs(playerGui:GetChildren()) do
+        -- Убедимся, что это не кнопка для прыжка или ходьбы
+        if guiElement.Name ~= "JumpButton" and guiElement.Name ~= "WalkButton" then
+            -- Удаляем ненужный GUI элемент
+            guiElement:Destroy()
+        end
+    end
+end
+
+-- Вызываем функцию
+removeUnwantedGUIs()
