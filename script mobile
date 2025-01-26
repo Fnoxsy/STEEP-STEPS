@@ -6,5 +6,5 @@ playerGui.Menu.MenuButton.Visible = false
 local character = player.Character or player:WaitForChild("Character")
 local humanoid = character.Humanoid or character:WaitForChild("Humanoid")
 humanoid.UsePowerJump = true
-humanoid.JumpPower = 70
-humanoid.WalkSpeed = 25
+humanoid.JumpPower = 50
+humanoid.WalkSpeed = 16
