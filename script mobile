@@ -2,24 +2,15 @@ local player = game.Players.LocalPlayer
 local playerGui = player:WaitForChild("PlayerGui")
 
 -- Функция для удаления всех GUI элементов, кроме кнопок прыжка и ходьбы
-local function removeUnwantedGUIs()
-    -- Перебираем все элементы в PlayerGui
-    for _, guiElement in pairs(playerGui:GetChildren()) do
-        -- Убедимся, что это не кнопка для прыжка или ходьбы
-        if guiElement.Name ~= "JumpButton" and guiElement.Name ~= "WalkButton" then
-            -- Удаляем ненужный GUI элемент
-            guiElement:Destroy()
-        end
-    end
-end
+playerGui.Menu.MenuButton.Visible = false
 
--- Вызываем функцию
-removeUnwantedGUIs()
-
-local player = game.Players.LocalPlayer  -- Получаем игрока
 local character = player.Character or player.CharacterAdded:Wait()  -- Получаем персонажа игрока (если его нет, ждем появления)
 local humanoid = character:WaitForChild("Humanoid")  -- Получаем объект Humanoid
 
 -- Изменяем скорость и высоту прыжка
 humanoid.WalkSpeed = 25  -- Устанавливаем скорость движения
 humanoid.JumpHeight = 70  -- Устанавливаем высоту прыжка
+
+game.ReplicatedStorage.Ladders.Ladder.Name = "NoNameLadder"
+wait(0.01)
+game.ReplicatedStorage.Ladders.InkLadder.Name = "Ladder"
