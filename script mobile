@@ -1,16 +1,10 @@
 local player = game.Players.LocalPlayer
 local playerGui = player:WaitForChild("PlayerGui")
 
--- Функция для удаления всех GUI элементов, кроме кнопок прыжка и ходьбы
 playerGui.Menu.MenuButton.Visible = false
 
-local character = player.Character or player.CharacterAdded:Wait()  -- Получаем персонажа игрока (если его нет, ждем появления)
-local humanoid = character:WaitForChild("Humanoid")  -- Получаем объект Humanoid
-
--- Изменяем скорость и высоту прыжка
-humanoid.WalkSpeed = 25  -- Устанавливаем скорость движения
-humanoid.JumpHeight = 70  -- Устанавливаем высоту прыжка
-
-game.ReplicatedStorage.Ladders.Ladder.Name = "NoNameLadder"
-wait(0.01)
-game.ReplicatedStorage.Ladders.InkLadder.Name = "Ladder"
+local character = player.Character or player:WaitForChild("Character")
+local humanoid = player.Humanoid or player:WaitForChild("Humanoid")
+humanoid.UsePowerJump = true
+humanoid.JumpPower = 70
+humanoid.WalkSpeed = 25
